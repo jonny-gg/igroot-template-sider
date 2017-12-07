@@ -55,7 +55,7 @@ export class App extends Component {
             <Menu
               mode="inline"
               theme={siderTheme}
-              defaultSelectedKeys={['list']}>
+              defaultSelectedKeys={['/list']}>
               {menus.map(({ name, route, icon, children }, index) => {
                 if (!name) {
                   return <span>name属性undefined</span>;

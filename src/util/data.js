@@ -653,6 +653,7 @@ export const tableList = {
     "current": 1
   }
 }
+
 /**
  * 表头数据格式
  */
@@ -703,9 +704,7 @@ export const tableColumns = [
     dataIndex:'operation',
   },
 ]
-/**
- * 菜单数据格式
- */
+
 /**
  * 获取菜单列表
  * 可以通过接口动态获取
