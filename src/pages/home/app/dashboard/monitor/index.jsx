@@ -1,10 +1,13 @@
 import { Component } from 'react';
 
-export class Dashboard1 extends Component {
+/**
+ * 监控页
+ */
+export class Monitor extends Component {
   render() {
     return (
       <div>
-        dashboard1
+        Monitor
       </div>
     );
   }

@@ -1,7 +1,7 @@
 import { Route, Switch } from 'react-router-dom'
 
-import { Dashboard1 } from './dashboard1/'
-import { Dashboard2 } from './dashboard2/'
+import { Analysis } from './analysis'
+import { Monitor } from './monitor'
 /**
  * 二级菜单路由定义
  * match 代表上一级路由
@@ -9,7 +9,7 @@ import { Dashboard2 } from './dashboard2/'
  */
 export const DashboardRoutes = ({ match }) => (
   <Switch>
-    <Route path={`${match.url}/dashboard1`} component={Dashboard1} />
-    <Route path={`${match.url}/dashboard2`} component={Dashboard2} />
+    <Route path={`${match.url}/analysis`} component={Analysis} />
+    <Route path={`${match.url}/monitor`} component={Monitor} />
   </Switch>
 )

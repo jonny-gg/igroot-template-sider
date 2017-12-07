@@ -1,7 +1,7 @@
 import { PureComponent } from 'react'
 import moment from 'moment'
 import { Table, Alert, Badge } from 'igroot'
-import styles from './index.scss'
+import './index.less'
 /**
  * 查询表格
  */

@@ -719,9 +719,8 @@ export const getMenus = () => {
     {
       name: 'Dashboard', route: 'dashboard', icon: 'bars',
       children: [
-        { name: '分析页', route: '/dashboard/dashboard1' },
-        { name: '监控页', route: '/dashboard/dashboard2' },
-        { name: '工作台', route: '/dashboard/dashboard3' },
+        { name: '分析页', route: '/dashboard/analysis' },
+        { name: '监控页', route: '/dashboard/monitor' },
       ]
     },
     { name: '列表页', route: '/list', icon: 'file-text' },
