@@ -653,3 +653,81 @@ export const tableList = {
     "current": 1
   }
 }
+/**
+ * 表头数据格式
+ */
+export const tableColumns = [
+  {
+    title: '规则编号',
+    dataIndex: 'no',
+  },
+  {
+    title: '描述',
+    dataIndex: 'description',
+  },
+  {
+    title: '服务调用次数',
+    dataIndex: 'callNo',
+    sorter: true,
+    align: 'right'
+  },
+  {
+    title: '状态',
+    dataIndex: 'status',
+    filters: [
+      {
+        text: status[0],
+        value: 0,
+      },
+      {
+        text: status[1],
+        value: 1,
+      },
+      {
+        text: status[2],
+        value: 2,
+      },
+      {
+        text: status[3],
+        value: 3,
+      },
+    ],
+  },
+  {
+    title: '更新时间',
+    dataIndex: 'updatedAt',
+    sorter: true,
+  },
+  {
+    title: '操作',
+    dataIndex:'operation',
+  },
+]
+/**
+ * 菜单数据格式
+ */
+/**
+ * 获取菜单列表
+ * 可以通过接口动态获取
+ * name     -- 菜单名称
+ * route    -- 路由(前面一定要有个斜杠来区分是否跟路径)
+ * icon     -- 对应的菜单前的图标
+ * children -- 有对应的子菜单
+ * 
+ */
+export const getMenus = () => {
+  return [
+    {
+      name: 'Dashboard', route: 'dashboard', icon: 'bars',
+      children: [
+        { name: '分析页', route: '/dashboard/dashboard1' },
+        { name: '监控页', route: '/dashboard/dashboard2' },
+        { name: '工作台', route: '/dashboard/dashboard3' },
+      ]
+    },
+    { name: '列表页', route: '/list', icon: 'file-text' },
+    { name: '图表页', route: '/chart', icon: 'dot-chart' },
+    { name: '表单页', route: '/form', icon: 'exception' },
+    { name: '异常', route: '/error', icon: 'question-circle-o' }
+  ]
+}

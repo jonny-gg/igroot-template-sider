@@ -7,7 +7,7 @@ import { Routes } from './app.routers'
 import { User } from './user'
 
 // 菜单数据来源
-import { getMenus } from '@/util/function'
+import { getMenus } from '@/util/data'
 
 const history = createHashHistory()
 const { Header, Sider, Content, Footer } = Layout
@@ -62,7 +62,7 @@ export class App extends Component {
                 }
                 if (children && children.some(child => child.name)) {
                   return <SubMenu
-                    key={`${route}`}
+                    key={`${index}`}
                     title={<span><Icon type={icon} /><span>{name}</span></span>}>
                     {children.map((item, i) => (
                       this.renderMenus(item.name, item.route)

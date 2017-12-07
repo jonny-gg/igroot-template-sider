@@ -59,29 +59,3 @@ export function copy(text) {
 
   return success
 }
-
-/**
- * 获取菜单列表
- * 可以通过接口动态获取
- * name     -- 菜单名称
- * route    -- 路由(前面一定要有个斜杠来区分是否跟路径)
- * icon     -- 对应的菜单前的图标
- * children -- 有对应的子菜单
- * 
- */
-export const getMenus = () => {
-  return [
-    {
-      name: 'Dashboard', route: 'dashboard', icon: 'bars',
-      children: [
-        { name: '分析页', route: '/dashboard/dashboard1' },
-        { name: '监控页', route: '/dashboard/dashboard2' },
-        { name: '工作台', route: '/dashboard/dashboard3' },
-      ]
-    },
-    { name: '列表页', route: '/list', icon: 'file-text' },
-    { name: '图表页', route: '/chart', icon: 'dot-chart' },
-    { name: '表单页', route: '/form', icon: 'exception' },
-    { name: '异常', route: '/error', icon: 'question-circle-o' }
-  ]
-}

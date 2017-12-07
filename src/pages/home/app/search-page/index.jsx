@@ -1,17 +1,19 @@
 import { PureComponent } from 'react'
 import {
   Row, Col, Card, Form, Input, Select, Icon, Button, Dropdown,
-  Menu, InputNumber, DatePicker, Modal, message
+  Menu, InputNumber, DatePicker, Modal, message, Badge
 } from 'igroot'
 
 import { Client } from '@@'
 import { StandardTable } from '@/components/standard-table'
 import styles from './index.scss'
-import { tableList } from '@/util/data'
+import { tableList, tableColumns } from '@/util/data'
+import moment from 'moment'
 
 const FormItem = Form.Item
 const { Option } = Select
 const getValue = obj => Object.keys(obj).map(key => obj[key]).join(',')
+const statusMap = ['default', 'processing', 'success', 'error']
 
 @Form.create()
 export class TableList extends PureComponent {
@@ -22,14 +24,22 @@ export class TableList extends PureComponent {
     selectedRows: [],
     formValues: {},
     data: {},
+    columns: [],
     loading: false
   }
 
 
   componentWillMount() {
+
+    // 初始化表头数据
+    this.renderColumns(tableColumns)
+    this.setState({ columns: tableColumns })
     this.setState({ data: this.getData() })
   }
 
+  /**
+   * table 直接分页的时候触发
+   */
   handleStandardTableChange = (pagination, filtersArg, sorter) => {
     const { formValues } = this.state
 
@@ -153,11 +163,16 @@ export class TableList extends PureComponent {
   }
 
   /**
-   * 获取初始表格数据
+   * 获取初始表格数据  *****可查看控制台信息*****
+   * @param {Object} params 分页必须包含属性 currentPage: 第几页, pageSize: 每页几条
+   * @return {Object} tableList 响应数据 包含 (list,pagination)
+   *   list 格式参考dataSource http://igroot.i.qingcdn.com:8001/components/table-cn/#如何使用
+   *   pagination< current: 第几页, pageSize: 每页几条, total: 总共多少条>
+   * 
    */
   getData = (params) => {
-    console.log(params, '请求参数')
-    console.log(`返回的数据格式,包含:list属性(数组对象)pagination属性(分页需要)`, tableList)
+    console.log(params, '请求参数(currentPage属性<第几页>,pageSize<每页几条数据>)')
+    console.log(tableList, '相应体包含:list属性<对象数组>,pagination属性<分页需要>')
     return tableList
   }
   /**
@@ -281,6 +296,44 @@ export class TableList extends PureComponent {
     return this.state.expandForm ? this.renderAdvancedForm() : this.renderSimpleForm()
   }
 
+  /**
+   * 需要个性化的表格列
+   * @param {Array<Object>} columns 表格表头数据
+   * 列对象中的属性可以参考 
+   * http://igroot.i.qingcdn.com:8001/components/table-cn/#Column
+   * 例如 本模板中 columns 中有个dataIndex='callNo'的列 后面要加个‘万’单位
+   */
+  renderColumns = (columns) => {
+    const status = ['关闭', '运行中', '已上线', '异常'];
+    if (!columns || columns.length == 0) {
+      message.error(`表格的columns获取为空`)
+      return []
+    }
+    columns.map((item) => {
+      switch (item.dataIndex) {
+        case 'callNo':
+          item.render = val => `${val}万`
+          break
+        case 'status':
+          item.render = (val) => {
+            return <Badge status={statusMap[val]} text={status[val]} />;
+          }
+          break
+        case 'updatedAt':
+          item.render = val => <span>{moment(val).format('YYYY-MM-DD HH:mm:ss')}</span>
+          break
+        case 'operation':
+          item.render = () => (
+            <div>
+              <a href="">操作1</a>
+              &nbsp;&nbsp;|&nbsp;&nbsp;
+            <a href="">操作2</a>
+            </div>
+          )
+          break
+      }
+    })
+  }
   render() {
     const { loading, data, selectedRows, modalVisible, addInputValue } = this.state
 
@@ -318,6 +371,7 @@ export class TableList extends PureComponent {
               selectedRows={selectedRows}
               loading={loading}
               data={data}
+              columns={tableColumns}
               onSelectRow={this.handleSelectRows}
               onChange={this.handleStandardTableChange}
             />
