@@ -1,8 +1,8 @@
 {
   "name": "igroot-app",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "igroot侧边栏模板",
+  "author": "guoqn",
   "license": "MIT",
   "private": true,
   "dependencies": {
