@@ -27,7 +27,6 @@ export class FormDatePicker extends Component {
     const { formatDate } = this.state
     const date = value ? moment(`${value}`, format || formatDate) : null
 
-    console.log(date, 'date')
     if ('value' in nextProps) {
       this.setState({
         value,

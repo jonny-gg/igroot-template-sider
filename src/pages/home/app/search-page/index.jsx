@@ -78,27 +78,17 @@ export class TableList extends PureComponent {
   }
 
   /**
-   * 勾选数据显示批量操作按钮
+   * 更多操作按钮
    */
   handleMenuClick = (e) => {
-    const { dispatch } = this.props
     const { selectedRows } = this.state
 
     if (!selectedRows) return
 
     switch (e.key) {
       case 'remove':
-        dispatch({
-          type: 'rule/remove',
-          payload: {
-            no: selectedRows.map(row => row.no).join(','),
-          },
-          callback: () => {
-            this.setState({
-              selectedRows: [],
-            })
-          },
-        })
+        message.warning(`您所删除的数据的规则编号是:${selectedRows.map(row => row.no).join(',')}`)
+        this.setState({ selectedRows: [] })
         break
       default:
         break
@@ -131,7 +121,7 @@ export class TableList extends PureComponent {
       }
       this.setState({
         loading: true, data: this.getData(values)
-      }, () => { setTimeout(() => { this.setState({ loading: false }), 5000 }) })
+      }, () => { setTimeout(() => { this.setState({ loading: false }), 2000 }) })
     })
   }
 
@@ -171,6 +161,9 @@ export class TableList extends PureComponent {
     console.log(tableList, 'table')
     return tableList
   }
+  /**
+   * 简单的查询条件
+   */
   renderSimpleForm() {
     const { getFieldDecorator } = this.props.form
     return (
@@ -208,7 +201,7 @@ export class TableList extends PureComponent {
   }
 
   /**
-   * 渲染对应的过滤选项
+   * 复杂的过滤条件
    */
   renderAdvancedForm() {
     const { getFieldDecorator } = this.props.form
