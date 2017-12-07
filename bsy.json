@@ -1,0 +1,35 @@
+{
+  "name": "",
+  "type": "igroot-project",
+  "repository": {},
+  "builder": "igroot-builder",
+  "options": {
+    "homepage": "home",
+    "domain": "localhost",
+    "port": 8080,
+    "lint": false,
+    "theme": {
+      "layout-header-background": "#279eff",
+      "layout-sider-background": "#2f373e",
+      "menu-dark-bg": "#2f373e"
+    },
+    "dev": {
+      "default": {
+        "apiDomain": "http://localhost:8080"
+      },
+      "example": {
+        "apiDomain": "http://localhost:8080"
+      }
+    },
+    "test": {
+      "default": {
+        "apiDomain": "http://localhost:8080"
+      }
+    },
+    "prod": {
+      "default": {
+        "apiDomain": "http://localhost:8080"
+      }
+    }
+  }
+}

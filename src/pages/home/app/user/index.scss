@@ -1,0 +1,12 @@
+.ant-layout-header{
+  #user {
+    position: absolute;
+    right: 50px;
+    top:0px;
+
+    .switch {margin-right: 10px;}
+    .ant-badge{
+      margin-right: 24px;
+    }
+  }
+}
