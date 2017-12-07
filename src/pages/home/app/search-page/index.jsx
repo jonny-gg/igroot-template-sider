@@ -52,9 +52,8 @@ export class TableList extends PureComponent {
     this.setState({
       loading: true,
       data: this.getData(params)
-    })
+    }, () => { this.setState({ loading: false }) })
 
-    setTimeout(() => { this.setState({ loading: false }) }, 5000)
   }
 
   /**
@@ -121,7 +120,7 @@ export class TableList extends PureComponent {
       }
       this.setState({
         loading: true, data: this.getData(values)
-      }, () => { setTimeout(() => { this.setState({ loading: false }), 2000 }) })
+      }, () => { this.setState({ loading: false }) })
     })
   }
 
@@ -158,7 +157,7 @@ export class TableList extends PureComponent {
    */
   getData = (params) => {
     console.log(params, '请求参数')
-    console.log(tableList, 'table')
+    console.log(`返回的数据格式,包含:list属性(数组对象)pagination属性(分页需要)`, tableList)
     return tableList
   }
   /**
@@ -306,7 +305,6 @@ export class TableList extends PureComponent {
               {
                 selectedRows.length > 0 && (
                   <span>
-                    <Button>批量操作</Button>
                     <Dropdown overlay={menu}>
                       <Button>
                         更多操作 <Icon type="down" />
