@@ -1,4 +1,6 @@
 import { Client } from '@@'
+import moment from 'moment'
+import numeral from 'numeral'
 /**
  * API 扩展函数
  * @param {Object} content 扩展对象
@@ -59,6 +61,12 @@ export function copy(text) {
 
   return success
 }
+
+export function fixedZero(val) {
+  return val * 1 < 10 ? `0${val}` : val;
+}
+
+export const yuan = val => `&yen; ${numeral(val).format('0,0')}`;
 
 /**
  * 根据时间获取时间间隔

@@ -701,7 +701,7 @@ export const tableColumns = [
   },
   {
     title: '操作',
-    dataIndex:'operation',
+    dataIndex: 'operation',
   },
 ]
 
@@ -728,4 +728,27 @@ export const getMenus = () => {
     { name: '表单页', route: '/form', icon: 'exception' },
     { name: '异常', route: '/error', icon: 'question-circle-o' }
   ]
+}
+/**
+ * ercharts 图表库格式
+ */
+export const chartData = {
+  visitData: {
+    data: [
+      { date: "1月", bandwidth: '10' },
+      { date: "2月", bandwidth: '20' },
+      { date: "3月", bandwidth: '23' },
+      { date: "4月", bandwidth: '30' },
+      { date: "5月", bandwidth: '23' },
+      { date: "6月", bandwidth: '32' },
+      { date: "7月", bandwidth: '28' },
+      { date: "8月", bandwidth: '31' },
+      { date: "9月", bandwidth: '35' },
+      { date: "10月", bandwidth: '36' },
+      { date: "11月", bandwidth: '34' },
+      { date: "12月", bandwidth: '23' },
+    ],
+    col: ["date", "bandwidth"]
+  }
+
 }

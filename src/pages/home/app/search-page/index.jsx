@@ -6,7 +6,7 @@ import {
 
 import { Client } from '@@'
 import { StandardTable } from '@/components/standard-table'
-import styles from './index.less'
+import './index.less'
 import { tableList, tableColumns } from '@/util/data'
 import moment from 'moment'
 

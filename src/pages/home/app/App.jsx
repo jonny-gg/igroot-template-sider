@@ -84,7 +84,7 @@ export class App extends Component {
               {/* user 登录信息 */}
               <User />
             </Header>
-            <Content id="content" style={{ margin: '24px 16px', padding: 24, background: '#fff' }}>
+            <Content id="content" style={{ padding: 24, background: '#f0f2f5' }}>
               <Routes />
             </Content>
             <Footer style={{ textAlign: 'center' }}>

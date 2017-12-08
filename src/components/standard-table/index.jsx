@@ -1,5 +1,4 @@
 import { PureComponent } from 'react'
-import moment from 'moment'
 import { Table, Alert, Badge } from 'igroot'
 import './index.less'
 /**
