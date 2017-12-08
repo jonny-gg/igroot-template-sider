@@ -735,20 +735,33 @@ export const getMenus = () => {
 export const chartData = {
   visitData: {
     data: [
-      { date: "1月", bandwidth: '10' },
-      { date: "2月", bandwidth: '20' },
-      { date: "3月", bandwidth: '23' },
-      { date: "4月", bandwidth: '30' },
-      { date: "5月", bandwidth: '23' },
-      { date: "6月", bandwidth: '32' },
-      { date: "7月", bandwidth: '28' },
-      { date: "8月", bandwidth: '31' },
-      { date: "9月", bandwidth: '35' },
-      { date: "10月", bandwidth: '36' },
-      { date: "11月", bandwidth: '34' },
-      { date: "12月", bandwidth: '23' },
+      { date: "1月", bandwidth: '10', 'request': '31' },
+      { date: "2月", bandwidth: '20', 'request': '23' },
+      { date: "3月", bandwidth: '23', 'request': '35' },
+      { date: "4月", bandwidth: '30', 'request': '51' },
+      { date: "5月", bandwidth: '23', 'request': '12' },
+      { date: "6月", bandwidth: '32', 'request': '39' },
+      { date: "7月", bandwidth: '28', 'request': '23' },
+      { date: "8月", bandwidth: '31', 'request': '46' },
+      { date: "9月", bandwidth: '35', 'request': '23' },
+      { date: "10月", bandwidth: '36', 'request': '40' },
+      { date: "11月", bandwidth: '34', 'request': '45' },
+      { date: "12月", bandwidth: '23', 'request': '46' },
     ],
     col: ["date", "bandwidth"]
   }
+}
 
+export const chartTableData = () => {
+  const searchData = []
+  for (let i = 0; i < 50; i += 1) {
+    searchData.push({
+      index: i + 1,
+      keyword: `搜索关键词-${i}`,
+      count: Math.floor(Math.random() * 1000),
+      range: Math.floor(Math.random() * 100),
+      status: Math.floor((Math.random() * 10) % 2),
+    });
+  }
+  return searchData
 }
