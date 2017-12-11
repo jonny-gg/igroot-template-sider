@@ -1,7 +1,7 @@
 import { Route, Switch, Redirect } from 'react-router-dom'
 import { TableList } from './search-page/'
 import { ChartPage } from './chart-page/'
-import { ErrorPage } from './error-page/'
+import { ErrorRoutes } from './error-page/error-router'
 import { FormPage } from './form-page/'
 import { DashboardRoutes } from './dashboard/dashboard.router'
 /**
@@ -14,7 +14,7 @@ export const Routes = () => (
     <Route path="/list" component={TableList} />
     <Route path="/chart" component={ChartPage} />
     <Route path="/form" component={FormPage} />
-    <Route path="/error" component={ErrorPage} />
+    <Route path="/error" component={ErrorRoutes} />
     <Redirect from="/" to="/list" />
   </Switch>
 )

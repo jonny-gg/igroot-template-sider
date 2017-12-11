@@ -707,7 +707,14 @@ export const getMenus = () => {
     { name: '列表页', route: '/list', icon: 'file-text' },
     { name: '图表页', route: '/chart', icon: 'dot-chart' },
     { name: '表单页', route: '/form', icon: 'exception' },
-    { name: '异常', route: '/error', icon: 'question-circle-o' }
+    {
+      name: '异常', route: '/error', icon: 'question-circle-o',
+      children: [
+        { name: '404', route: '/error/404' },
+        { name: '403', route: '/error/403' },
+        { name: '500', route: '/error/500' },
+      ]
+    }
   ]
 }
 /**

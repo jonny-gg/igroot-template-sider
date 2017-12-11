@@ -7,7 +7,7 @@ export class ChartPage extends Component {
   render() {
     return (
       <div>
-        charts
+        
       </div>
     )
   }
