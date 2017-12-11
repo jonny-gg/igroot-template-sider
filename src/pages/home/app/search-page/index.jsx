@@ -13,7 +13,6 @@ import moment from 'moment'
 const FormItem = Form.Item
 const { Option } = Select
 const getValue = obj => Object.keys(obj).map(key => obj[key]).join(',')
-const statusMap = ['default', 'processing', 'success', 'error']
 
 @Form.create()
 export class TableList extends PureComponent {
@@ -33,8 +32,7 @@ export class TableList extends PureComponent {
 
     // 初始化表头数据
     this.renderColumns(tableColumns)
-    this.setState({ columns: tableColumns })
-    this.setState({ data: this.getData() })
+    this.setState({ columns: tableColumns, data: this.getData() })
   }
 
   /**
@@ -291,6 +289,7 @@ export class TableList extends PureComponent {
 
   /**
    * 判定是否有收起操作
+   * 用来展示哪一部分表单
    */
   renderForm() {
     return this.state.expandForm ? this.renderAdvancedForm() : this.renderSimpleForm()
@@ -304,7 +303,8 @@ export class TableList extends PureComponent {
    * 例如 本模板中 columns 中有个dataIndex='callNo'的列 后面要加个‘万’单位
    */
   renderColumns = (columns) => {
-    const status = ['关闭', '运行中', '已上线', '异常'];
+    const statusMap = ['default', 'processing', 'success', 'error']
+    const status = ['关闭', '运行中', '已上线', '异常'];    
     if (!columns || columns.length == 0) {
       message.error(`表格的columns获取为空`)
       return []
@@ -315,9 +315,27 @@ export class TableList extends PureComponent {
           item.render = val => `${val}万`
           break
         case 'status':
-          item.render = (val) => {
-            return <Badge status={statusMap[val]} text={status[val]} />;
-          }
+          item.filters = [
+            {
+              text: status[0],
+              value: 0,
+            },
+            {
+              text: status[1],
+              value: 1,
+            },
+            {
+              text: status[2],
+              value: 2,
+            },
+            {
+              text: status[3],
+              value: 3,
+            },
+          ],
+            item.render = (val) => {
+              return <Badge status={statusMap[val]} text={status[val]} />;
+            }
           break
         case 'updatedAt':
           item.render = val => <span>{moment(val).format('YYYY-MM-DD HH:mm:ss')}</span>
@@ -335,7 +353,7 @@ export class TableList extends PureComponent {
     })
   }
   render() {
-    const { loading, data, selectedRows, modalVisible, addInputValue } = this.state
+    const { loading, data, selectedRows, modalVisible, addInputValue, columns } = this.state
 
     const menu = (
       <Menu onClick={this.handleMenuClick} selectedKeys={[]}>
@@ -371,7 +389,7 @@ export class TableList extends PureComponent {
               selectedRows={selectedRows}
               loading={loading}
               data={data}
-              columns={tableColumns}
+              columns={columns}
               onSelectRow={this.handleSelectRows}
               onChange={this.handleStandardTableChange}
             />

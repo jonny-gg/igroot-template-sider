@@ -675,24 +675,6 @@ export const tableColumns = [
   {
     title: '状态',
     dataIndex: 'status',
-    filters: [
-      {
-        text: status[0],
-        value: 0,
-      },
-      {
-        text: status[1],
-        value: 1,
-      },
-      {
-        text: status[2],
-        value: 2,
-      },
-      {
-        text: status[3],
-        value: 3,
-      },
-    ],
   },
   {
     title: '更新时间',
@@ -720,7 +702,6 @@ export const getMenus = () => {
       name: 'Dashboard', route: 'dashboard', icon: 'bars',
       children: [
         { name: '分析页', route: '/dashboard/analysis' },
-        { name: '监控页', route: '/dashboard/monitor' },
       ]
     },
     { name: '列表页', route: '/list', icon: 'file-text' },
@@ -751,7 +732,9 @@ export const chartData = {
     col: ["date", "bandwidth"]
   }
 }
-
+/**
+ * 图表下的表格
+ */
 export const chartTableData = () => {
   const searchData = []
   for (let i = 0; i < 50; i += 1) {
