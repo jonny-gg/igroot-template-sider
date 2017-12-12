@@ -43,8 +43,9 @@ export class App extends Component {
     const { menus, siderTheme } = this.state
     return (
       <Router history={history}>
-        <Layout id="home">
+        <Layout id="home" style={{ height: '100vh' }}>
           <Sider
+            style={{ height: '100vh' }}
             trigger={null}
             collapsible
             collapsed={this.state.collapsed}
