@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { Component } from 'react'
 
 /**
  * 监控页
@@ -9,6 +9,6 @@ export class Monitor extends Component {
       <div>
         Monitor
       </div>
-    );
+    )
   }
 }

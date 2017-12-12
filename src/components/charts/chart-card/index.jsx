@@ -9,7 +9,7 @@ export const ChartCard = ({
   const content = (
     <div className="chartCard">
       <div
-        className={classNames("chartTop", { "chartTopMargin": (!children && !footer) })}
+        className={classNames('chartTop', { 'chartTopMargin': (!children && !footer) })}
       >
         <div className="avatar">
           {
@@ -30,7 +30,7 @@ export const ChartCard = ({
       {
         children && (
           <div className="content" style={{ height: contentHeight || 'auto' }}>
-            <div className={contentHeight && "contentFixed"}>
+            <div className={contentHeight && 'contentFixed'}>
               {children}
             </div>
           </div>
@@ -38,7 +38,7 @@ export const ChartCard = ({
       }
       {
         footer && (
-          <div className={classNames("footer", { "footerMargin": !children })}>
+          <div className={classNames('footer', { 'footerMargin': !children })}>
             {footer}
           </div>
         )

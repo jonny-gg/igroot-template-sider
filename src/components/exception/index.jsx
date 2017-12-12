@@ -6,7 +6,7 @@ import './index.less'
 
 export default ({ className, linkElement = 'a', type, title, desc, img, actions, ...rest }) => {
   const pageType = type in config ? type : '404'
-  const clsString = classNames("exception", className)
+  const clsString = classNames('exception', className)
 
   return (
     <div className={clsString} {...rest}>
@@ -21,8 +21,8 @@ export default ({ className, linkElement = 'a', type, title, desc, img, actions,
         <div className="desc">{desc || config[pageType].desc}</div>
         <div className="actions">
           {
-            actions ||
-            createElement(linkElement, {
+            actions
+            || createElement(linkElement, {
               to: '/',
               href: '/',
             }, <Button type="primary">返回首页</Button>)

@@ -166,30 +166,30 @@ export default class SsoLogin {
         const { data } = res
 
         switch (res.code) {
-          case 0:
-            setLocalStorage(userInfoKey, data)
+        case 0:
+          setLocalStorage(userInfoKey, data)
 
-            if (data.jwtToken) {
-              setLocalStorage(jwtTokenKey, data.jwtToken)
+          if (data.jwtToken) {
+            setLocalStorage(jwtTokenKey, data.jwtToken)
 
-              setLocalStorage(name, data.name) // 用户名
-              setLocalStorage(cname, data.cname) // 中文名
-              if (getLocalStorage(jwtTokenKey)) {
-                location.reload()
-              }
+            setLocalStorage(name, data.name) // 用户名
+            setLocalStorage(cname, data.cname) // 中文名
+            if (getLocalStorage(jwtTokenKey)) {
+              location.reload()
             }
+          }
 
-            if (data.menu) {
-              setLocalStorage(menuInfoKey, data.menu)
-            }
-            resolve()
-            break
-          case 605:
-            this.redirectLogin()
-            break
-          case -1:
-            console.error('请求失败', res.msg)
-            break
+          if (data.menu) {
+            setLocalStorage(menuInfoKey, data.menu)
+          }
+          resolve()
+          break
+        case 605:
+          this.redirectLogin()
+          break
+        case -1:
+          console.error('请求失败', res.msg)
+          break
         }
 
         return res
@@ -221,17 +221,17 @@ export default class SsoLogin {
       .then(res => res.json())
       .then(res => {
         switch (res.code) {
-          case 0:
-            callback && callback()
-            break
-          case 600:
-            this.logout()
-            break
-          case -1:
-            console.error('请求失败', res.msg)
-            break
-          default:
-            this.logout()
+        case 0:
+          callback && callback()
+          break
+        case 600:
+          this.logout()
+          break
+        case -1:
+          console.error('请求失败', res.msg)
+          break
+        default:
+          this.logout()
         }
 
         return res

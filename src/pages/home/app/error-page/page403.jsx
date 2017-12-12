@@ -9,6 +9,6 @@ export class Page403 extends Component {
       <div>
         <Exception type="403" style={{ minHeight: 500, height: '80%' }} />
       </div>
-    );
+    )
   }
 }

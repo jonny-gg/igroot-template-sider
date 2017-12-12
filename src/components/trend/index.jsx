@@ -9,8 +9,8 @@ import './index.less'
  * flag 上升下降标识: up | down
  */
 const Trend = ({ colorful = true, flag, children, className, ...rest }) => {
-  const classString = classNames("trendItem", {
-    ["trendItemGrey"]: !colorful,
+  const classString = classNames('trendItem', {
+    ['trendItemGrey']: !colorful,
   }, className)
   return (
     <div
@@ -23,4 +23,4 @@ const Trend = ({ colorful = true, flag, children, className, ...rest }) => {
     </div>
   )
 }
-export default Trend;
+export default Trend

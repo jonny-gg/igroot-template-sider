@@ -58,7 +58,7 @@ export class App extends Component {
               defaultSelectedKeys={['/list']}>
               {menus.map(({ name, route, icon, children }, index) => {
                 if (!name) {
-                  return <span>name属性undefined</span>;
+                  return <span>name属性undefined</span>
                 }
                 if (children && children.some(child => child.name)) {
                   return <SubMenu

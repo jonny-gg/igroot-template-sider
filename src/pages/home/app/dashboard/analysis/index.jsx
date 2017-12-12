@@ -35,7 +35,7 @@ export class Analysis extends Component {
   }
 
   componentWillMount() {
-    this.setState({ chartData: chartData, chartTableList: chartTableData() })
+    this.setState({ chartData, chartTableList: chartTableData() })
   }
 
 
@@ -79,7 +79,7 @@ export class Analysis extends Component {
       return
     }
     if (rangePickerValue[0].isSame(value[0], 'day') && rangePickerValue[1].isSame(value[1], 'day')) {
-      return "returnentDate"
+      return 'returnentDate'
     }
   }
 
@@ -98,10 +98,9 @@ export class Analysis extends Component {
     //   salesTypeDataOffline,
     // } = chart
 
-    const salesPieData = salesType === 'all' ?
-      visitData.data
-      :
-      (salesType === 'online' ? visitData.data : visitData.data)
+    const salesPieData = salesType === 'all'
+      ? visitData.data
+      :      (salesType === 'online' ? visitData.data : visitData.data)
 
     const menu = (
       <Menu>
@@ -159,7 +158,7 @@ export class Analysis extends Component {
         dataIndex: 'count',
         key: 'count',
         sorter: (a, b) => a.count - b.count,
-        className: "nRight",
+        className: 'nRight',
       },
       {
         title: '周涨幅',
@@ -175,16 +174,16 @@ export class Analysis extends Component {
       },
     ]
     const offlineData = [
-      {name: "节点0", cvr: 0.9},
-      {name: "节点1", cvr: 0.5},
-      {name: "节点2", cvr: 0.6},
-      {name: "节点3", cvr: 0.7},
-      {name: "节点4", cvr: 0.9},
-      {name: "节点5", cvr: 0.3},
-      {name: "节点6", cvr: 0.2},
-      {name: "节点7", cvr: 0.5},
-      {name: "节点8", cvr: 0.8},
-      {name: "节点9", cvr: 0.6},
+      { name: '节点0', cvr: 0.9 },
+      { name: '节点1', cvr: 0.5 },
+      { name: '节点2', cvr: 0.6 },
+      { name: '节点3', cvr: 0.7 },
+      { name: '节点4', cvr: 0.9 },
+      { name: '节点5', cvr: 0.3 },
+      { name: '节点6', cvr: 0.2 },
+      { name: '节点7', cvr: 0.5 },
+      { name: '节点8', cvr: 0.8 },
+      { name: '节点9', cvr: 0.6 },
     ]
     const activeKey = currentTabKey || (offlineData[0] && offlineData[0].name)
 
@@ -335,7 +334,7 @@ export class Analysis extends Component {
                         {
                           rankingListData.map((item, i) => (
                             <li key={item.title}>
-                              <span className={(i < 3) ? "active" : ''}>{i + 1}</span>
+                              <span className={(i < 3) ? 'active' : ''}>{i + 1}</span>
                               <span>{item.title}</span>
                               <span>{numeral(item.total).format('0,0')}</span>
                             </li>
@@ -366,7 +365,7 @@ export class Analysis extends Component {
                         {
                           rankingListData.map((item, i) => (
                             <li key={item.title}>
-                              <span className={(i < 3) && "active"}>{i + 1}</span>
+                              <span className={(i < 3) && 'active'}>{i + 1}</span>
                               <span>{item.title}</span>
                               <span>{numeral(item.total).format('0,0')}</span>
                             </li>

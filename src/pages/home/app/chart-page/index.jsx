@@ -12,7 +12,7 @@ import { chartData } from '@/util/data'
  */
 export class ChartPage extends Component {
   state = {
-    chartData: chartData
+    chartData
   }
 
   render() {

@@ -1,5 +1,5 @@
 import { Route, Switch, Redirect } from 'react-router-dom'
-import { TableList } from './search-page/'
+import { TableRoutes } from './table/table.router'
 import { ChartPage } from './chart-page/'
 import { ErrorRoutes } from './error-page/error-router'
 import { FormPage } from './form-page/'
@@ -11,10 +11,10 @@ import { DashboardRoutes } from './dashboard/dashboard.router'
 export const Routes = () => (
   <Switch>
     <Route path="/dashboard" component={DashboardRoutes} />
-    <Route path="/list" component={TableList} />
+    <Route path="/table" component={TableRoutes} />
     <Route path="/chart" component={ChartPage} />
     <Route path="/form" component={FormPage} />
     <Route path="/error" component={ErrorRoutes} />
-    <Redirect from="/" to="/list" />
+    <Redirect from="/" to="/dashboard/analysis" />
   </Switch>
 )

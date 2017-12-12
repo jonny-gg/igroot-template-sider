@@ -93,12 +93,12 @@ export class TableList extends PureComponent {
     if (!selectedRows) return
 
     switch (e.key) {
-      case 'remove':
-        message.warning(`您所删除的数据的规则编号是:${selectedRows.map(row => row.no).join(',')}`)
-        this.setState({ selectedRows: [] })
-        break
-      default:
-        break
+    case 'remove':
+      message.warning(`您所删除的数据的规则编号是:${selectedRows.map(row => row.no).join(',')}`)
+      this.setState({ selectedRows: [] })
+      break
+    default:
+      break
     }
   }
 
@@ -304,51 +304,51 @@ export class TableList extends PureComponent {
    */
   renderColumns = (columns) => {
     const statusMap = ['default', 'processing', 'success', 'error']
-    const status = ['关闭', '运行中', '已上线', '异常'];    
+    const status = ['关闭', '运行中', '已上线', '异常']    
     if (!columns || columns.length == 0) {
-      message.error(`表格的columns获取为空`)
+      message.error('表格的columns获取为空')
       return []
     }
     columns.map((item) => {
       switch (item.dataIndex) {
-        case 'callNo':
-          item.render = val => `${val}万`
-          break
-        case 'status':
-          item.filters = [
-            {
-              text: status[0],
-              value: 0,
-            },
-            {
-              text: status[1],
-              value: 1,
-            },
-            {
-              text: status[2],
-              value: 2,
-            },
-            {
-              text: status[3],
-              value: 3,
-            },
-          ],
-            item.render = (val) => {
-              return <Badge status={statusMap[val]} text={status[val]} />;
-            }
-          break
-        case 'updatedAt':
-          item.render = val => <span>{moment(val).format('YYYY-MM-DD HH:mm:ss')}</span>
-          break
-        case 'operation':
-          item.render = () => (
-            <div>
-              <a href="">操作1</a>
+      case 'callNo':
+        item.render = val => `${val}万`
+        break
+      case 'status':
+        item.filters = [
+          {
+            text: status[0],
+            value: 0,
+          },
+          {
+            text: status[1],
+            value: 1,
+          },
+          {
+            text: status[2],
+            value: 2,
+          },
+          {
+            text: status[3],
+            value: 3,
+          },
+        ],
+        item.render = (val) => {
+          return <Badge status={statusMap[val]} text={status[val]} />
+        }
+        break
+      case 'updatedAt':
+        item.render = val => <span>{moment(val).format('YYYY-MM-DD HH:mm:ss')}</span>
+        break
+      case 'operation':
+        item.render = () => (
+          <div>
+            <a href="">操作1</a>
               &nbsp;&nbsp;|&nbsp;&nbsp;
             <a href="">操作2</a>
-            </div>
-          )
-          break
+          </div>
+        )
+        break
       }
     })
   }

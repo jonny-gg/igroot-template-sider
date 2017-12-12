@@ -16,31 +16,31 @@ export class StandardTable extends PureComponent {
       this.setState({
         selectedRowKeys: [],
         totalCallNo: 0,
-      });
+      })
     }
   }
 
   handleRowSelectChange = (selectedRowKeys, selectedRows) => {
     const totalCallNo = selectedRows.reduce((sum, val) => {
-      return sum + parseFloat(val.callNo, 10);
-    }, 0);
+      return sum + parseFloat(val.callNo, 10)
+    }, 0)
 
     if (this.props.onSelectRow) {
-      this.props.onSelectRow(selectedRows);
+      this.props.onSelectRow(selectedRows)
     }
 
-    this.setState({ selectedRowKeys, totalCallNo });
+    this.setState({ selectedRowKeys, totalCallNo })
   }
 
   handleTableChange = (pagination, filters, sorter) => {
-    this.props.onChange(pagination, filters, sorter);
+    this.props.onChange(pagination, filters, sorter)
   }
 
   /**
    * 清空所选数据
    */
   cleanSelectedKeys = () => {
-    this.handleRowSelectChange([], []);
+    this.handleRowSelectChange([], [])
   }
 
   render() {
@@ -86,6 +86,6 @@ export class StandardTable extends PureComponent {
           onChange={this.handleTableChange}
         />
       </div>
-    );
+    )
   }
 }
