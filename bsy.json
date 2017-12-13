@@ -8,11 +8,7 @@
     "domain": "localhost",
     "port": 8080,
     "lint": false,
-    "theme": {
-      "layout-header-background": "#279eff",
-      "layout-sider-background": "#2f373e",
-      "menu-dark-bg": "#2f373e"
-    },
+    "publicPath": "./",
     "dev": {
       "default": {
         "apiDomain": "http://localhost:8080"
