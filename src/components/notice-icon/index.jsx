@@ -1,10 +1,10 @@
-import React, { PureComponent } from 'react';
-import { Popover, Icon, Tabs, Badge, Spin } from 'igroot';
-import classNames from 'classnames';
-import List from './notice-list';
-import './index.less';
+import { PureComponent } from 'react'
+import { Popover, Icon, Tabs, Badge, Spin } from 'igroot'
+import classNames from 'classnames'
+import List from './notice-list'
+import './index.less'
 
-const { TabPane } = Tabs;
+const { TabPane } = Tabs
 
 export default class NoticeIcon extends PureComponent {
   static defaultProps = {
@@ -18,31 +18,31 @@ export default class NoticeIcon extends PureComponent {
       clear: '清空',
     },
     emptyImage: 'http://fe.baishancloud.com/images/notice.svg',
-  };
-  static Tab = TabPane;
+  }
+  static Tab = TabPane
   constructor(props) {
-    super(props);
-    this.state = {};
+    super(props)
+    this.state = {}
     if (props.children && props.children[0]) {
-      this.state.tabType = props.children[0].props.title;
+      this.state.tabType = props.children[0].props.title
     }
   }
   onItemClick = (item, tabProps) => {
-    const { onItemClick } = this.props;
-    onItemClick(item, tabProps);
+    const { onItemClick } = this.props
+    onItemClick(item, tabProps)
   }
   onTabChange = (tabType) => {
-    this.setState({ tabType });
-    this.props.onTabChange(tabType);
+    this.setState({ tabType })
+    this.props.onTabChange(tabType)
   }
   getNotificationBox() {
-    const { children, loading, locale } = this.props;
+    const { children, loading, locale } = this.props
     if (!children) {
-      return null;
+      return null
     }
     const panes = React.Children.map(children, (child) => {
       const title = child.props.list && child.props.list.length > 0
-        ? `${child.props.title} (${child.props.list.length})` : child.props.title;
+        ? `${child.props.title} (${child.props.list.length})` : child.props.title
       return (
         <TabPane tab={title} key={child.props.title}>
           <List
@@ -54,33 +54,33 @@ export default class NoticeIcon extends PureComponent {
             locale={locale}
           />
         </TabPane>
-      );
-    });
+      )
+    })
     return (
       <Spin spinning={loading} delay={0}>
         <Tabs className="tabs" onChange={this.onTabChange}>
           {panes}
         </Tabs>
       </Spin>
-    );
+    )
   }
   render() {
-    const { className, count, popupAlign, onPopupVisibleChange } = this.props;
-    const noticeButtonClass = classNames(className, "noticeButton");
-    const notificationBox = this.getNotificationBox();
+    const { className, count, popupAlign, onPopupVisibleChange } = this.props
+    const noticeButtonClass = classNames(className, "noticeButton")
+    const notificationBox = this.getNotificationBox()
     const trigger = (
       <span className={noticeButtonClass}>
         <Badge count={count} className="badge">
           <Icon type="bell" className="icon" />
         </Badge>
       </span>
-    );
+    )
     if (!notificationBox) {
-      return trigger;
+      return trigger
     }
-    const popoverProps = {};
+    const popoverProps = {}
     if ('popupVisible' in this.props) {
-      popoverProps.visible = this.props.popupVisible;
+      popoverProps.visible = this.props.popupVisible
     }
     return (
       <Popover
@@ -95,6 +95,6 @@ export default class NoticeIcon extends PureComponent {
       >
         {trigger}
       </Popover>
-    );
+    )
   }
 }
