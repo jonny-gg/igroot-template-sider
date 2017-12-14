@@ -88,8 +88,8 @@ export class App extends Component {
             <Content id="content" style={{ padding: 24, background: '#f0f2f5' }}>
               <Routes />
             </Content>
-            <Footer style={{ textAlign: 'center' }}>
-              igroot ©2017 Created by GOTC
+            <Footer className="footer">
+              copyright ©{new Date().getFullYear()} by BaiShanCloud
             </Footer>
           </Layout>
         </Layout>
