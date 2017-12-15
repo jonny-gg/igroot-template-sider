@@ -1,8 +1,8 @@
-import React, { PureComponent } from 'react'
+import { PureComponent } from 'react'
 import {
   Form, Input, DatePicker, Select, Button, Card, InputNumber, Radio, Icon, Tooltip,
 } from 'igroot'
-import './index.less'
+import './../index.less'
 
 const FormItem = Form.Item
 const { Option } = Select
@@ -60,7 +60,7 @@ export class FormPage extends PureComponent {
                 }],
               })(
                 <Input placeholder="给表单起个名字" />
-              )}
+                )}
             </FormItem>
             <FormItem
               {...formItemLayout}
@@ -72,7 +72,7 @@ export class FormPage extends PureComponent {
                 }],
               })(
                 <RangePicker style={{ width: '100%' }} placeholder={['开始日期', '结束日期']} />
-              )}
+                )}
             </FormItem>
             <FormItem
               {...formItemLayout}
@@ -84,7 +84,7 @@ export class FormPage extends PureComponent {
                 }],
               })(
                 <TextArea style={{ minHeight: 32 }} placeholder="请输入你的阶段性描述" rows={4} />
-              )}
+                )}
             </FormItem>
             <FormItem
               {...formItemLayout}
@@ -96,7 +96,7 @@ export class FormPage extends PureComponent {
                 }],
               })(
                 <TextArea style={{ minHeight: 32 }} placeholder="请输入衡量标准" rows={4} />
-              )}
+                )}
             </FormItem>
             <FormItem
               {...formItemLayout}
@@ -147,7 +147,7 @@ export class FormPage extends PureComponent {
                     <Radio value="2">部分公开</Radio>
                     <Radio value="3">不公开</Radio>
                   </Radio.Group>
-                )}
+                  )}
                 <FormItem>
                   {getFieldDecorator('publicUsers', {
                   })(
@@ -163,7 +163,7 @@ export class FormPage extends PureComponent {
                       <Option value="2">同事乙</Option>
                       <Option value="3">同事丙</Option>
                     </Select>
-                  )}
+                    )}
                 </FormItem>
               </div>
             </FormItem>

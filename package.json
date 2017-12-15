@@ -5,6 +5,7 @@
   "author": "guoqn",
   "license": "MIT",
   "private": true,
+  "link": false,
   "dependencies": {
     "classnames": "^2.2.5",
     "dva": "^2.1.0",

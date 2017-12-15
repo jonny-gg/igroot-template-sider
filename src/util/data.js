@@ -715,7 +715,13 @@ export const getMenus = () => {
       ]
     },
     // { name: '图表页', route: '/chart', icon: 'dot-chart' },
-    { name: '表单页', route: '/form', icon: 'exception' },
+    {
+      name: '表单页', route: '/form', icon: 'exception',
+      children: [
+        { name: '基础表单', route: '/form/baseForm' },
+        { name: '基础表单', route: '/form/advancedForm' },
+      ]
+    },
     {
       name: '异常', route: '/error', icon: 'question-circle-o',
       children: [
