@@ -1,4 +1,3 @@
-import { Client } from '@@'
 import moment from 'moment'
 import numeral from 'numeral'
 /**

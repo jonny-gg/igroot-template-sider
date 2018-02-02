@@ -48,7 +48,7 @@ export const ChartCard = ({
 
   return (
     <Card
-      bodyStyle={{ padding: '20px 24px 8px 24px' }}
+      bodyStyle={{ padding: '20px 24px 8px 24px',margin:'10px 0' }}
       {...rest}
     >
       {<Spin spinning={loading}>{content}</Spin>}

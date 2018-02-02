@@ -4,7 +4,6 @@ import {
   Menu, InputNumber, DatePicker, Modal, message, Badge
 } from 'igroot'
 
-import { Client } from '@@'
 import { StandardTable } from '@/components/standard-table'
 import './index.less'
 import { tableList, tableColumns } from '@/util/data'
