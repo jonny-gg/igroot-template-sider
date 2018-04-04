@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 
 import { App } from './app/'
 import { AppContainer } from '#'
-import { Fetch } from 'igroot-fetch'
+import Fetch from 'igroot-fetch'
 Fetch.setDomain({
   /**
    * [API 请求地址]: [匹配访问地址的正则]

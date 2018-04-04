@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "tmp-sider",
   "type": "igroot-project",
   "repository": {},
   "builder": "igroot-builder",
@@ -7,25 +7,6 @@
     "homepage": "home",
     "domain": "localhost",
     "port": 8080,
-    "lint": false,
-    "publicPath": "./",
-    "dev": {
-      "default": {
-        "apiDomain": "http://localhost:8080"
-      },
-      "example": {
-        "apiDomain": "http://localhost:8080"
-      }
-    },
-    "test": {
-      "default": {
-        "apiDomain": "http://localhost:8080"
-      }
-    },
-    "prod": {
-      "default": {
-        "apiDomain": "http://localhost:8080"
-      }
-    }
+    "lint": false
   }
 }
