@@ -7,6 +7,9 @@
     "homepage": "home",
     "domain": "localhost",
     "port": 8080,
-    "lint": false
+    "lint": false,
+    "esModule": [
+      "sso-login"
+    ]
   }
 }

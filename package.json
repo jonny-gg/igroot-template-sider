@@ -8,18 +8,19 @@
   "link": false,
   "dependencies": {
     "classnames": "^2.2.5",
-    "dva": "^2.1.0",
+    "dva": "^2.2.3",
     "ercharts": "^0.3.2",
     "history": "^4.7.2",
     "igroot": "^1.1.5",
-    "igroot-fetch": "^1.1.18",
+    "igroot-fetch": "^1.2.9",
     "lokka": "^1.7.0",
-    "moment": "^2.19.3",
+    "moment": "^2.22.1",
     "numeral": "^2.0.6",
     "push.js": "^1.0.5",
-    "react": "^16.3.0",
-    "react-dom": "^16.2.0",
-    "react-router-dom": "^4.2.2"
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-router-dom": "^4.2.2",
+    "sso-login": "^0.1.0"
   },
   "engines": {
     "node": ">= 6.9.3",

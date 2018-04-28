@@ -1,11 +1,12 @@
-import { Component } from 'react'
+import React, { Component } from 'react'
 import { Menu, Dropdown, Icon, Modal, message } from 'igroot'
+import { logout } from '@/util/function'
 
 const { confirm } = Modal
 const { Item, Divider } = Menu
 export class User extends Component {
   state = {
-    username: '测试用户test'
+    username: JSON.parse(localStorage.getItem('cname'))
   }
 
   componentWillMount() {
@@ -21,8 +22,7 @@ export class User extends Component {
       content: '确定注销当前账号吗?',
       onOk() {
         message.success('登出成功')
-        // 测试数据
-        // location.assign('http://www.baidu.com')
+        logout()
       }
     })
   }

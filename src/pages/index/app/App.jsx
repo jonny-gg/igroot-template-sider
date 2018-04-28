@@ -1,7 +1,12 @@
-import { Component } from 'react'
+
+import React, { Component } from 'react'
 import { Router, Link } from 'react-router-dom'
 import { Layout, Menu, Icon, BackTop } from 'igroot'
 import createHashHistory from 'history/createHashHistory'
+
+import igrootFetch from 'igroot-fetch'
+import domain from '@/util/domain'
+import { refreshUserInfo } from '@/util/function'
 
 import { Routes } from './app.routers'
 import { User } from './user'
@@ -40,6 +45,8 @@ export class App extends Component {
   }
 
   render() {
+    this.initFetch()
+
     const { menus, siderTheme } = this.state
     return (
       <Router history={history}>
@@ -85,7 +92,7 @@ export class App extends Component {
               {/* user 登录信息 */}
               <User />
             </Header>
-            <Content id="content" style={{ padding: 24, background: '#f0f2f5' }}>
+            <Content id="content" style={{ padding: 24, background: '#f0f2f5', width: '100%', height: '100%' }}>
               <Routes />
             </Content>
             <Footer className="footer">
@@ -95,5 +102,28 @@ export class App extends Component {
         </Layout>
       </Router>
     )
+  }
+
+  // sso登录成功后初始化 fetch 请求对象
+  initFetch = () => {
+    igrootFetch.setDomain(domain)
+
+    window.Client = igrootFetch('/graphql', {
+      headers: {
+        Authorization: `Bearer ${!!window.localStorage['jwtToken'] ? JSON.parse(window.localStorage['jwtToken']) : ''}`
+      },
+
+      handleHttpErrors: function (response) {
+        notification.error({ message: 'Http Error', description: response.statusText })
+        if (response.status === 401) {
+          refreshUserInfo()
+        }
+      },
+
+      handleGraphQLErrors: function (errors, data) {
+        const { message } = errors[0]
+        notification.error({ message: 'GraphQL Error', description: message })
+      }
+    })
   }
 }

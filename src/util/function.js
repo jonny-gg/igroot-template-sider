@@ -115,3 +115,13 @@ export function getTimeDistance(type) {
     return [moment(`${year}-01-01 00:00:00`), moment(`${year}-12-31 23:59:59`)]
   }
 }
+
+import domain from './domain'
+export const logout = () => {
+  window.localStorage.clear()
+  window.location.assign(domain + '/account/user/logout');
+}
+export const refreshUserInfo = () => {
+  window.localStorage.clear()
+  window.location.assign(domain + '/account/user/login');
+}
