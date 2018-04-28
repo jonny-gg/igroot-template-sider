@@ -51,19 +51,18 @@ src
   |-- static               # 静态资源（存放图片、字体等静态文件）
   |-- util                   # 通用工具方法
       |-- function.js       # 通用的函数
-      |-- transport.js      # GraphQL请求的http层
 ```
 
 ### API 使用说明
 
-项目模板中已内置了封装好的 API 实例，可直接引用
-`RESTful`类型的 A：
-
 ``` javascript
 // 针对restful 的使用方式
-Fetch('/aa/bb/cc').get().then((res)=>{console.log(res,'返回结果')})
-Fetch('/aa/bb/cc').post().then((res)=>{console.log(res,'返回结果')})
-Fetch('/aa/bb/cc').patch().then((res)=>{console.log(res,'返回结果')})
+
+import igrootFetch from 'igroot-fetch'
+import domain from '@/util/domain'
+
+igrootFetch(domain+'/aa/bb/cc').get().then((res)=>{console.log(res,'返回结果')})
+igrootFetch(domain+'/aa/bb/cc').post(postBody).then((res)=>{console.log(res,'返回结果')})
 //等等等....
 
 ```
@@ -97,5 +96,3 @@ Client.mutate(`
 `)
 
 ```
-
-**总而言之，隔离出 API 层的目的是使其承担`接口转化`与`数据格式转化`的功能，使得业务层调用的 API 与获得的数据能够统一，而扩展的使用，就是实现这个目的的手段。**
