@@ -5,7 +5,9 @@
   "author": "",
   "license": "MIT",
   "private": true,
+  "link": false,
   "dependencies": {
+    "history": "^4.7.2",
     "igroot": "1.3.2",
     "igroot-fetch": "^1.3.0",
     "igroot-form-container": "0.0.2",
