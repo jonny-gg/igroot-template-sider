@@ -1,127 +1,67 @@
-import moment from 'moment'
-import numeral from 'numeral'
 /**
- * API 扩展函数
- * @param {Object} content 扩展对象
+ * 该模块主要用于放常用的函数集合
+ * 后续可以集成在 igroot-util
  */
-export function extend(content) {
-  return api => {
-    Object.keys(content).forEach(key => api[key] = content[key])
-
-    return api
-  }
-}
+import React, { Component } from 'react'
+import { domainList } from '@/config/domain'
 
 /**
- * 请求 url 参数解析
- * @param {string} url
+ * 获取后端服务主域
  */
-export function parseUrlParams(url) {
-  const result = {}
-  const params = url.split('?')[1]
+function getDomain() {
+  const host = window.location.host
+  let domain = host
 
-  params && params.split('&').forEach(item => {
-    const pair = item.split('=')
-    result[pair[0]] = pair[1]
+  domainList.map(item => {
+    if (host.includes(item.host)) domain = item.domain
   })
 
-  return result
+  if (!domain) 
+    throw new Error('Can not match the domain! Please check your domain config.')
+
+  return domain
 }
+
 
 /**
- * 复制文本内容至粘贴板
- * @param  {string}   text  文本内容
- * @return {boolean}        是否复制成功
+ * 高阶组件 传入定制化属性
+ * @param {*} WrappedComponent 
+ * @param {*} props 
  */
-export function copy(text) {
-  const isRTL = document.documentElement.getAttribute('dir') === 'rtl'
-  const fakeElem = document.createElement('textarea')
-
-  fakeElem.style.fontSize = '12pt'
-  fakeElem.style.border = '0'
-  fakeElem.style.padding = '0'
-  fakeElem.style.margin = '0'
-  fakeElem.style.position = 'absolute'
-  fakeElem.style[isRTL ? 'right' : 'left'] = '-9999px'
-  const yPosition = window.pageYOffset || document.documentElement.scrollTop
-  fakeElem.style.top = `${yPosition}px`
-
-  fakeElem.setAttribute('readonly', '')
-  fakeElem.value = text
-
-  document.body.appendChild(fakeElem)
-
-  fakeElem.select()
-
-  let success
-  try { success = document.execCommand('Copy') } catch (err) { success = false }
-
-  document.body.removeChild(fakeElem)
-
-  return success
-}
-
-export function fixedZero(val) {
-  return val * 1 < 10 ? `0${val}` : val
-}
-
-export const yuan = val => `&yen; ${numeral(val).format('0,0')}`
-
-/**
- * 根据时间获取时间间隔
- * @param {String} type 'today' | 'week' | 'month' | 'year'
- */
-export function getTimeDistance(type) {
-  const now = new Date()
-  const oneDay = 1000 * 60 * 60 * 24
-
-  if (type === 'today') {
-    now.setHours(0)
-    now.setMinutes(0)
-    now.setSeconds(0)
-    return [moment(now), moment(now.getTime() + (oneDay - 1000))]
-  }
-
-  if (type === 'week') {
-    let day = now.getDay()
-    now.setHours(0)
-    now.setMinutes(0)
-    now.setSeconds(0)
-
-    if (day === 0) {
-      day = 6
-    } else {
-      day -= 1
+function componentHOC(WrappedComponent, props) {
+  return class ExtendsComponent extends Component {
+    render() {
+      return <WrappedComponent {...this.props} {...props}/>
     }
-
-    const beginTime = now.getTime() - (day * oneDay)
-
-    return [moment(beginTime), moment(beginTime + ((7 * oneDay) - 1000))]
-  }
-
-  if (type === 'month') {
-    const year = now.getFullYear()
-    const month = now.getMonth()
-    const nextDate = moment(now).add(1, 'months')
-    const nextYear = nextDate.year()
-    const nextMonth = nextDate.month()
-
-    return [moment(`${year}-${fixedZero(month + 1)}-01 00:00:00`), moment(moment(`${nextYear}-${fixedZero(nextMonth + 1)}-01 00:00:00`).valueOf() - 1000)]
-  }
-
-  if (type === 'year') {
-    const year = now.getFullYear()
-
-    return [moment(`${year}-01-01 00:00:00`), moment(`${year}-12-31 23:59:59`)]
   }
 }
 
-import domain from './domain'
-export const logout = () => {
-  window.localStorage.clear()
-  window.location.assign(domain + '/account/user/logout');
+/**
+ * 获取本地存储数据
+ * @param {String} key 
+ */
+function getStorageItem(key){
+  const value = window.localStorage && window.localStorage.getItem(key)
+
+  return JSON.parse(value)
 }
-export const refreshUserInfo = () => {
-  window.localStorage.clear()
-  window.location.assign(domain + '/account/user/login');
+
+/**
+ *  设置本地存储
+ * @param {String} key 
+ * @param {*} value 
+ */
+function setStorageItem(key, value) {
+  const newVaule = JSON.stringify(value)
+
+  return window.localStorage && window.localStorage.setItem(key, newVaule)
+}
+
+
+
+export {
+  getDomain,
+  componentHOC,
+  getStorageItem,
+  setStorageItem
 }

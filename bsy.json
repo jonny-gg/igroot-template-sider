@@ -1,15 +1,15 @@
 {
-  "name": "tmp-sider",
-  "type": "igroot-project",
+  "name": "app-name",
   "repository": {},
   "builder": "igroot-builder",
   "options": {
-    "homepage": "home",
-    "domain": "localhost",
-    "port": 8080,
-    "lint": false,
+    "homepage": "index",
+    "port": 6789,
+    "theme": {},
     "esModule": [
-      "sso-login"
+      "sso-login",
+      "igroot-form-container",
+      "igroot-router-config"
     ]
   }
 }

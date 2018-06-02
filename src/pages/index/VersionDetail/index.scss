@@ -1,0 +1,24 @@
+.version-detail {
+  .ant-card-head {
+    background: #f9f9f9;
+  }
+  
+  .ant-card {
+    margin-top: 20px;
+    font-size: 14px;
+  }
+
+  .detail {
+    line-height: 30px;
+    color: #666;
+
+    h2 {
+      line-height: 40px;
+      font-size: 18px;
+    }
+
+    .time {
+      font-weight: 700;
+    }
+  }
+}

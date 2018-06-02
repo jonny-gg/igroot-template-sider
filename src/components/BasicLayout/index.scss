@@ -1,0 +1,147 @@
+.basic-layout {
+  font-size: 12px;
+  height: 100%;
+
+  .ant-layout {
+    background: #f0f2f5;
+  }
+
+  .logo {
+    max-width: 340px;
+    height: 60px;
+    line-height: 60px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+
+    img {
+      height: 48px;
+      vertical-align: middle;
+    }
+  }
+
+  .anticon-menu-fold,
+  .anticon-menu-unfold {
+    position: absolute;
+    left: 0;
+    font-size: 20px;
+    line-height: 64px;
+    cursor: pointer;
+    -webkit-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+    padding: 0 24px;
+  }
+
+  .ant-layout-sider {
+    background-color: #001529;
+  }
+
+  .ant-layout-header {
+    position: relative;
+    width: 100%;
+    min-width: 430px;
+    padding: 10px 20px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-shadow: 0 1px 4px rgba(0,21,41,.08);
+    box-shadow: 0 1px 4px rgba(0,21,41,.08);
+    background: #fff;
+    align-items: center;
+  }
+
+  .header-msg {
+    position: absolute;
+    height: 100%;
+    left: 100px;
+    top: 0px;
+  
+    .msg-icon {
+      width: 300px;
+      height: 50px;
+      color: #333;
+  
+      img {
+        float: left;
+        height: 100%;
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .header-notice {
+    position: absolute;
+    height: 100%;
+    right: 135px;
+    top: 0px;
+    text-align: right;
+    padding: 0 32px;
+    font-size: 16px;
+
+    .anticon {
+      font-size: 14px;
+    }
+  }
+
+  .user-info {
+    font-size: 18px;
+    line-height: 64px;
+    height: 64px;
+    color: #000;
+    float: right;
+    margin-right: 20px;
+
+    .account {
+      display: inline-block;
+      font-size: 12px;
+      margin-right: 10px;
+      vertical-align: top;
+      color: #666;
+
+      a {
+        margin-left: 5px;
+      }
+    }
+  }
+
+  .content {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .main {
+    overflow: auto!important;
+    display: flex ;
+    height: 100%;
+    flex-direction: column ;
+  }
+
+  .footer {
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    text-align: center;
+    align-self: flex-end;
+    -moz-align-self: flex-end;
+    -webkit-align-self: flex-end;
+  }
+}
