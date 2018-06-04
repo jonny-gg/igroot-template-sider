@@ -3,7 +3,7 @@ import './index.scss'
 
 import React, { Component } from 'react'
 import { Card } from 'igroot'
-import { PageHeader } from '@/components/pageHeader'
+import { PageHeader } from '@/components/PageHeader'
 
 import { setStorageItem } from '@/util/function'
 import { version } from '@/config/version'
