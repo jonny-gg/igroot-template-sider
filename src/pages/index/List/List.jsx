@@ -7,7 +7,7 @@ import Result from './Result'
 import Editor from './Editor'
 
 // apis
-import ListIO from '@/apis/list'
+import { getProjectsApi } from '@/apis/list'
 
 /**
  * 列表管理页
@@ -24,8 +24,6 @@ export  class List extends Component {
       title: '',
       dataSource: []
     }
-
-    this.api = new ListIO()
   }
 
   componentDidMount() {
@@ -33,7 +31,7 @@ export  class List extends Component {
   }
 
   getList = (params) => {
-    this.api.getList(params).then(dataSource => {
+    getProjectsApi(params).then(dataSource => {
       this.setState({
         dataSource
       })

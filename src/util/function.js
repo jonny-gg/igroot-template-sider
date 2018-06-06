@@ -10,15 +10,14 @@ import { domainList } from '@/config/domain'
  */
 function getDomain() {
   const host = window.location.host
-  let domain = host
+  let domain = {}
 
   domainList.map(item => {
-    if (host.includes(item.host)) domain = item.domain
+    if (item.host.test(host)) domain[`${item.domain}`] = item.host
   })
 
-  if (!domain) 
+  if (!domain || Object.keys(domain) == 0)
     throw new Error('Can not match the domain! Please check your domain config.')
-
   return domain
 }
 

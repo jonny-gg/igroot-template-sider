@@ -6,11 +6,11 @@
 
 export const domainList = [
   {
-    host: 'localhost',
-    domain: 'xxxx'
+    host: /localhost/,
+    domain: 'http://xxx(后端的API地址)'
   },
   {
-    host: 'xxxx.baishancloud.com',
-    domain: 'xxxxx'
+    host: /xxxx\.baishancloud\.com/, // 如果是个域名,请注意中间的点的转换
+    domain: 'http://xxx(后端的API地址)'
   }
 ]
