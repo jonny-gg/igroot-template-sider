@@ -1,13 +1,15 @@
 import React from 'react'
 import { notification, message } from 'igroot'
-import Fetch from 'igroot-fetch'
+import IgrootFetch from 'igroot-fetch'
 
 import { getDomain } from '@/util/function'
 
-window.Fetch = Fetch
+window.IgrootFetch = IgrootFetch
 window.React = React
 
-Fetch.setDomain(getDomain())
+const domain = getDomain()
+
+IgrootFetch.setDomain(domain)
 
 /**
  * //需要自定义网络错误处理 请重写以下这个方法
@@ -32,7 +34,7 @@ const handleGraphQLErrors = (errors, data) => {
   throw errors[0]
 }
 
-window.Client = Fetch('/graphql', error_config)
+window.Client = IgrootFetch('/graphql', error_config)
 
 /**
  * 如果您的系统需要对接多个后端,

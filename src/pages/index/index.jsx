@@ -5,7 +5,8 @@ import ReactDOM from 'react-dom'
 
 import Login from 'sso-login'
 import { AppContainer } from '#'
-import './../../util/base.js'
+import '@/util/base.js'
+
 // App 
 import { App } from './App'
 

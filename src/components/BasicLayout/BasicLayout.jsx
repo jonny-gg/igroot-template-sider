@@ -33,8 +33,6 @@ export class BasicLayout extends Component {
   }
 
   render() {
-    console.log(this.props)
-    
     const { location, match, theme } = this.props
     const { collapsed } = this.state
     const userName = getStorageItem('cname') || '无名氏'

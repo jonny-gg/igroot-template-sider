@@ -58,11 +58,12 @@ export default class Result extends Component {
         width: '40%'
       }, {
         title: '操作',
+        dataIndex: 'opt',
         key: 'opt',
         width: '20%',
         render: (text, record) => {
           return (
-            <div>
+            <div key={record.id}>
               <a onClick={() => this.handleUpdate(record.id)}>修改</a>
               <span className="ant-divider"/>
               <Popconfirm title={`确定删除该${title}吗？`} onConfirm={() => this.handleDelete(record.id)}>

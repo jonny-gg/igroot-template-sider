@@ -7,7 +7,7 @@ import Result from './Result'
 import Editor from './Editor'
 
 // apis
-import { getProjectsApi } from '@/apis/list'
+import { getItemList, addItem, deleteItem, updataItem } from '@/apis/list'
 
 /**
  * 列表管理页
@@ -31,7 +31,7 @@ export  class List extends Component {
   }
 
   getList = (params) => {
-    getProjectsApi(params).then(dataSource => {
+    getItemList(params).then(dataSource => {
       this.setState({
         dataSource
       })
@@ -55,13 +55,13 @@ export  class List extends Component {
   }
 
   handleAdd = (params) => {
-    this.api.add(params).then(status => {
+    addItem(params).then(status => {
       status && this.resetTable()
     })
   }
 
   handleDelete = (id) => {
-    this.api.delete(id).then(status => {
+    deleteItem(id).then(status => {
       status && this.resetTable()
     })
   }
@@ -82,7 +82,8 @@ export  class List extends Component {
   handleUpdate = (params) => {
     const { id } = this.state
     const newParams = {...params, ...{ id }}
-    this.api.update(newParams).then(status => {
+
+    updateItem(newParams).then(status => {
       status && this.resetTable()
     })
   }
