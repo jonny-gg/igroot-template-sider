@@ -1,28 +1,30 @@
 import React from 'react'
-import { notification, message } from 'igroot'
-import IgrootFetch from 'igroot-fetch'
+import { notification } from 'igroot'
+import Fetch from 'igroot-fetch'
 
 import { getDomain } from '@/util/function'
 
-window.IgrootFetch = IgrootFetch
+window.Fetch = Fetch
 window.React = React
 
-const domain = getDomain()
-
-IgrootFetch.setDomain(domain)
+Fetch.setDomain(getDomain())
 
 /**
  * //需要自定义网络错误处理 请重写以下这个方法
- * handleNetErrors: handleNetErrors(),
+ * handleNetErrors: handleNetErrors(error),
  * 
  * //需要自定义HTTP错误处理 请重写以下这个方法
- * handleHttpErrors: handleHttpErrors()
+ * handleHttpErrors: handleHttpErrors(response)
+ * 
+ * //需要自定义GraphQL错误处理 请重写以下这个方法 例如示例代码
+ * handleGraphQLErrors: handleGraphQLErrors(errors, data)
  */
-const error_config = {
-  handleGraphQLErrors: this.handleGraphQLErrors,
-}
-// GraphQL 错误处理
-const handleGraphQLErrors = (errors, data) => {
+
+// GraphQL 错误处理 (示例代码)
+function handleGraphQLErrors(errors, data) {
+  // message 错误信息 
+  // error_code 错误状态码 
+  // path 当前操作的graphql方法 
   const { message, error_code, path } = errors[0]
 
   notification.error({
@@ -33,14 +35,17 @@ const handleGraphQLErrors = (errors, data) => {
 
   throw errors[0]
 }
+const error_config = {
+  handleGraphQLErrors: handleGraphQLErrors,
+}
 
-window.Client = IgrootFetch('/graphql', error_config)
+window.Client = Fetch('/graphql', error_config)
 
 /**
  * 如果您的系统需要对接多个后端,
  * 请打开以下注释并
  * 修改模块名的名称
  */
-// window.Client2 = Fetch('模块名/graphql', {
+// window.ClientDemo2(Demo2 使用驼峰) = Fetch('模块名/graphql', {
 //   handleGraphQLErrors: this.aaa,
 // })
