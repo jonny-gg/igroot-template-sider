@@ -36,7 +36,7 @@ function handleGraphQLErrors(errors, data) {
   throw errors[0]
 }
 const error_config = {
-  handleGraphQLErrors: handleGraphQLErrors,
+  handleGraphQLErrors
 }
 
 window.Client = Fetch('/graphql', error_config)

@@ -3,7 +3,7 @@
  */
 
 // 引入要使用的布局组件
-import { BasicLayout} from '@/components/BasicLayout'
+import { BasicLayout } from '@/components/BasicLayout'
 
 // 引入渲染的页面模块
 import { Home } from './Home'

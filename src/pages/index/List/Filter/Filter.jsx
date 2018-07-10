@@ -10,7 +10,7 @@ import { FormItem, FormContainer, FormOption } from 'igroot-form-container'
  */
 export default class Filter extends Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   handleSubmit = (params) => {
@@ -22,13 +22,13 @@ export default class Filter extends Component {
     return (
       <div>
         <Card>
-          <div className='tableList'>
-            <div className='tableListForm'>
+          <div className="tableList">
+            <div className="tableListForm">
               <FormContainer>
                 <Row>
                   <Col span={8}>
                     <FormItem label="备注" name="comment">
-                      <Input placeholder='输入要搜索的备注关键字'/>
+                      <Input placeholder="输入要搜索的备注关键字"/>
                     </FormItem>
                   </Col>
                   <Col span={8}>

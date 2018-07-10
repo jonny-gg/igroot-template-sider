@@ -10,7 +10,7 @@ import { domainList } from '@/config/domain'
  */
 function getDomain() {
   const host = window.location.host
-  let domain = {}
+  const domain = {}
 
   domainList.map(item => {
     if (item.host.test(host)) domain[`${item.domain}`] = item.host
@@ -30,7 +30,7 @@ function getDomain() {
 function componentHOC(WrappedComponent, props) {
   return class ExtendsComponent extends Component {
     render() {
-      return <WrappedComponent {...this.props} {...props}/>
+      return <WrappedComponent {...this.props} {...props} />
     }
   }
 }
@@ -39,7 +39,7 @@ function componentHOC(WrappedComponent, props) {
  * 获取本地存储数据
  * @param {String} key 
  */
-function getStorageItem(key){
+function getStorageItem(key) {
   const value = window.localStorage && window.localStorage.getItem(key)
 
   return JSON.parse(value)

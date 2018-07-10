@@ -12,7 +12,7 @@ import { getItemList, addItem, deleteItem, updataItem } from '@/apis/list'
 /**
  * 列表管理页
  */
-export  class List extends Component {
+export class List extends Component {
   constructor(props) {
     super(props)
 
@@ -67,7 +67,7 @@ export  class List extends Component {
   }
 
   handleBeforeUpdate = (id) => {
-    const { dataSource } = this.state 
+    const { dataSource } = this.state
     const editorData = dataSource.filter(item => item.id === id)[0]
 
     this.setState({
@@ -81,11 +81,11 @@ export  class List extends Component {
 
   handleUpdate = (params) => {
     const { id } = this.state
-    const newParams = {...params, ...{ id }}
+    const newParams = { ...params, ...{ id } }
 
-    updateItem(newParams).then(status => {
-      status && this.resetTable()
-    })
+    // updateItem(newParams).then(status => {
+    //   status && this.resetTable()
+    // })
   }
 
   handleFilter = (values) => {
@@ -93,21 +93,21 @@ export  class List extends Component {
   }
 
   render() {
-    const { editorVisible, editorType, editorData, dataSource, title } = this.state 
+    const { editorVisible, editorType, editorData, dataSource, title } = this.state
 
     return (
       <div>
-        <Filter 
+        <Filter
           onFilter={this.handleFilter}
         />
-        <Result 
+        <Result
           title="分隔符"
-          beforeAdd={this.handleBeforeAdd} 
-          onDelete={this.handleDelete} 
-          beforeUpdate={this.handleBeforeUpdate} 
+          beforeAdd={this.handleBeforeAdd}
+          onDelete={this.handleDelete}
+          beforeUpdate={this.handleBeforeUpdate}
           dataSource={dataSource}
         />
-        <Editor 
+        <Editor
           visible={editorVisible}
           type={editorType}
           data={editorData}

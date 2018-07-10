@@ -6,7 +6,7 @@ import { Card, Table, Button, Popconfirm } from 'igroot'
 export default class Result extends Component {
   constructor(props) {
     super(props)
-    const { dataSource } = props 
+    const { dataSource } = props
 
     this.state = {
       dataSource
@@ -23,23 +23,23 @@ export default class Result extends Component {
   }
 
   handleAdd = () => {
-    const { beforeAdd } = this.props 
+    const { beforeAdd } = this.props
     beforeAdd && beforeAdd()
   }
 
   handleDelete = (id) => {
-    const { onDelete } = this.props 
+    const { onDelete } = this.props
     onDelete && onDelete(id)
   }
 
   handleUpdate = (id) => {
-    const { beforeUpdate } = this.props 
+    const { beforeUpdate } = this.props
     beforeUpdate && beforeUpdate(id)
   }
 
   render() {
-    const { title } = this.props 
-    const { dataSource } = this.state 
+    const { title } = this.props
+    const { dataSource } = this.state
     const columns = [
       {
         title: '分隔符',
@@ -65,10 +65,10 @@ export default class Result extends Component {
           return (
             <div key={record.id}>
               <a onClick={() => this.handleUpdate(record.id)}>修改</a>
-              <span className="ant-divider"/>
+              <span className="ant-divider" />
               <Popconfirm title={`确定删除该${title}吗？`} onConfirm={() => this.handleDelete(record.id)}>
                 <a>删除</a>
-            </Popconfirm>
+              </Popconfirm>
             </div>
           )
         }
@@ -76,11 +76,11 @@ export default class Result extends Component {
     ]
     return (
       <div>
-        <Card style={{marginTop: 10}}>
-          <Button type='primary' onClick={this.handleAdd}>
+        <Card style={{ marginTop: 10 }}>
+          <Button type="primary" onClick={this.handleAdd}>
             添加{title}
           </Button>
-          <Table style={{marginTop: 10}} columns={columns} dataSource={dataSource} pagination={false}/>
+          <Table style={{ marginTop: 10 }} columns={columns} dataSource={dataSource} pagination={false} />
         </Card>
       </div>
     )

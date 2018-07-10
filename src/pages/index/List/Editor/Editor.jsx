@@ -16,12 +16,12 @@ export default class Editor extends Component {
   constructor(props) {
     super(props)
 
-    const { visible, data, type } = props 
+    const { visible, data, type } = props
 
     this.state = {
       visible,
       data,
-      type 
+      type
     }
   }
 
@@ -30,8 +30,8 @@ export default class Editor extends Component {
 
     this.setState({
       ...nextProps
-    },()=> {
-      if ('data' in nextProps &&　type === 'update') {
+    }, () => {
+      if ('data' in nextProps && 　type === 'update') {
         setTimeout(() => {
           const { data } = nextProps
           this.form && this.form.setFieldsValue(data)
@@ -41,12 +41,12 @@ export default class Editor extends Component {
   }
 
   handleGetForm = (form) => {
-    this.form = form 
+    this.form = form
   }
 
   handleSubmit = (params) => {
-    const { type } = this.state 
-    const { onAdd, onUpdate } = this.props 
+    const { type } = this.state
+    const { onAdd, onUpdate } = this.props
 
     type === 'add' ? onAdd(params) : onUpdate(params)
   }
@@ -58,19 +58,19 @@ export default class Editor extends Component {
   }
 
   render() {
-    const { visible, data, type, title } = this.state 
+    const { visible, data, type, title } = this.state
 
     return (
       <Modal
-          visible={visible}
-          title={title}
-          footer={null}
-          onCancel={this.handleCancel}
-          width="50%"
-        >
+        visible={visible}
+        title={title}
+        footer={null}
+        onCancel={this.handleCancel}
+        width="50%"
+      >
         <Card>
-          <div className='tableList'>
-            <div className='tableListForm'>
+          <div className="tableList">
+            <div className="tableListForm">
               <FormContainer onGetForm={(form) => this.handleGetForm(form)}>
                 <Row>
                   <Col span={12}>
@@ -84,8 +84,8 @@ export default class Editor extends Component {
                 </Row>
                 <Row>
                   <Col span={12}>
-                    <FormItem label="名称" name="value"  required>
-                      <Input  />
+                    <FormItem label="名称" name="value" required>
+                      <Input />
                     </FormItem>
                   </Col>
                 </Row>
