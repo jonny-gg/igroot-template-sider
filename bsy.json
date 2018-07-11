@@ -9,7 +9,8 @@
     "esModule": [
       "sso-login",
       "igroot-form-container",
-      "igroot-router-config"
+      "igroot-router-config",
+      "igroot-frame-layout"
     ]
   }
 }

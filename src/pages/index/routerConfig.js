@@ -18,12 +18,12 @@ import { VersionDetail } from './VersionDetail'
  */
 const routerConfig = [
   {
-    path: '/',
+    path: '/dashboard/gai',
     layout: BasicLayout,
     component: Home,
   },
   {
-    path: '/list',
+    path: '/dashboard/list',
     layout: BasicLayout,
     component: List,
   },

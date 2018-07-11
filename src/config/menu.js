@@ -9,23 +9,27 @@
 const siderMenuConfig = [
   {
     name: 'Dashboard',
-    path: '/',
-    icon: 'home',
-    children: [
+    to: '/dashboard',
+    iconType: 'home',
+    key: '/dashboard',
+    subs: [
       {
         name: '平台概况',
-        path: '/',
+        to: '/dashboard/gai',
+        key: '/gai',
       },
       {
         name: '列表展示',
-        path: '/list',
+        to: '/dashboard/list',
+        key: '/list',
       },
     ]
   },
   {
     name: '客户信息',
-    path: '/message',
-    icon: 'solution'
+    to: '/message',
+    key: '/message',
+    iconType: 'solution'
   }
 ]
 
