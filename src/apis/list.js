@@ -3,37 +3,46 @@
  * @param {入参} params
  */
 export const getItemList = (params = {}) => {
+  console.log(params, '传入的参数')
   // mock 场景
-  let data = [
+  const data = [
     {
-      "id": 1,
-      "type": "a",
-      "value": "xiugai1",
-      "comment": "测试数据1"
+      'id': 1,
+      'name': '名称1',
+      'isp_id': 'dx',
+      'status': '1000',
+      'province_id': 'fj',
+      'created_at': '2018-08-01',
+      'updated_at': '2018-08-02',
     },
     {
-      "id": 2,
-      "type": "a",
-      "value": "xiugai2",
-      "comment": "测试数据2"
+      'id': 2,
+      'name': '名称2',
+      'isp_id': 'yd',
+      'status': '1002',
+      'province_id': 'gd',
+      'created_at': '2018-08-01',
+      'updated_at': '2018-08-02',
     },
     {
-      "id": 3,
-      "type": "a",
-      "value": "xiugai3",
-      "comment": "测试数据3"
+      'id': 3,
+      'name': '名称3',
+      'isp_id': 'lt',
+      'status': '1000',
+      'province_id': 'zj',
+      'created_at': '2018-08-01',
+      'updated_at': '2018-08-02',
     }
   ]
-
-
+  // 模板模拟数据方式，真实环境请注释, 并打开下方graphql注释
   return new Promise((resolve, reject) => {
     resolve(data)
   })
 
-  // 实际场景
-  return Client.query(`{
-    
-  }`).then(data => data)
+  // graphql请求客户端 真实调试请开启
+  // return Client.query(`
+  // 此处填写graphql请求参数
+  // `).then(data => data)
 }
 
 /**

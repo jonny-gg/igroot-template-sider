@@ -33,6 +33,6 @@ const render = App => ReactDOM.render(
 render(App)
 
 if (module.hot) {
-  module.hot.accept('./App', window.location.reload())
+  module.hot.accept('./App', () => render(App))
 }
 

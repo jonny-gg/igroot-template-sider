@@ -7,7 +7,7 @@ import { BasicLayout } from '@/components/BasicLayout'
 
 // 引入渲染的页面模块
 import { Home } from './Home'
-import { List } from './List'
+import { DemoList } from './List'
 import { NotFound } from './NotFound'
 import { VersionDetail } from './VersionDetail'
 
@@ -25,7 +25,7 @@ const routerConfig = [
   {
     path: '/dashboard/list',
     layout: BasicLayout,
-    component: List,
+    component: DemoList,
   },
   {
     path: '/version',
