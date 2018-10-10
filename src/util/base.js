@@ -18,7 +18,7 @@ window.React = React
  * handleGraphQLErrors: handleGraphQLErrors(errors, data)
  */
 
-// 后端开发基于 bungalow 框架，使用这个错误处理的配置
+// 后端开发基于 bungalow 框架，使用这个错误处理的配置,同时请确保 igroot-fetch 的版本在 1.4.0 以前
 const errorConfig = {
   handleGraphQLErrors: (errors, data) => {
     // message 错误信息 
@@ -36,7 +36,7 @@ const errorConfig = {
   }
 }
 
-// 后端开发基于 Phalcon 框架，使用这个错误处理的配置
+// 后端开发基于 Phalcon 框架，使用这个错误处理的配置, igroot-fetch 的版本使用最新即可
 const newErrorConfig = {
   handleErrors: ({ code, msg }) => {
     if (code == '44') {
