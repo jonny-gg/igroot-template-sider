@@ -4,6 +4,9 @@ import { withRouter } from 'react-router'
 import FrameLayout from 'igroot-frame-layout'
 import { siderMenuConfig } from '@/config/menu'
 
+import { getDomain } from '@/util/function'
+const domain = getDomain()
+
 @withRouter
 export class BasicLayout extends Component {
 
@@ -12,7 +15,7 @@ export class BasicLayout extends Component {
 
     return (
       <FrameLayout
-        apiDomain={''}
+        apiDomain={domain}
         appName="示例平台"
         logo="https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png"
         mode="sider+header" // 三种可选的布局模式：sider+header;sider;header(其中默认模式为：sider+header)

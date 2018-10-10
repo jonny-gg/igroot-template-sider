@@ -18,7 +18,7 @@
     "react-dom": "16.4.0",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
-    "sso-login": "0.2.13"
+    "sso-login": "^1.0.4"
   },
   "engines": {
     "node": ">= 6.9.3",
