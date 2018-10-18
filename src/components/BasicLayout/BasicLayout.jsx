@@ -8,7 +8,7 @@ import { getDomain } from '@/util/function'
 const domain = getDomain()
 
 @withRouter
-export class BasicLayout extends Component {
+class BasicLayout extends Component {
 
   render() {
     const { history } = this.props
@@ -27,3 +27,5 @@ export class BasicLayout extends Component {
     )
   }
 }
+
+export default BasicLayout
