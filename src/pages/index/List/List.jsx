@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Card, Row, Col, Tooltip, Icon, message, Modal } from 'igroot'
 import { TablePage } from './../../../components/TablePage'
-import { getItemList, deleteItem } from '@/apis/list'
+import { getItemList, deleteItem } from '@/api/list'
 import { DemoFilter } from './Filter'
 import { DemoModal } from './Modal'
 
