@@ -11,11 +11,10 @@
    3. state {object} 组件的state
    4. cb {function} 请求结果的回调函数，用true和false来传递成功和失败
 
-3. filterParams {function} 表单参数过滤函数
 
-4. pagination {boolean} 是否页码前端受控
+3. pagination {boolean} 是否页码前端受控
 
-5. defaultPageInfo {object} 页面的默认页码
+4. defaultPageInfo {object} 页面的默认页码
 
    1. current_page  {number} 当前页码
 
@@ -36,7 +35,7 @@ import React, { PureComponent } from 'react'
 import { Card } from 'igroot'
 import { Search } from './Search'
 import { List } from './List/'
-import TablePage from '@/components/HocTablePage/'
+import TablePage from '@/components/TablePage/'
 import { querySupplierPage } from '@/apis/supplier/supplierPage'
 @TablePage({
   queryData: (params, pageInfo, state, cb) => {
@@ -66,7 +65,7 @@ export class SupplierManage extends PureComponent {
 }
 ```
 
-必须按照 一个```<div>```包裹```<Search />```和```<List />```的格式，并且```<Search />```在上```<List />```在下。
+必须按照 一个<div>包裹<Search />和<List />的格式，并且<Search />在上<List />在下。
 
 ### Search
 
@@ -77,11 +76,11 @@ export class SupplierManage extends PureComponent {
 3. renderButtons {function} 返回按钮组，如果不想自己绑定函数，可以直接调用此函数
 4. loading {boolean} 加载状态
 5. form {object} form对象
+6. Item Form 表单的Item组件
 
 ```jsx
 import React, { Component } from 'react'
-import { Form, Row, Col, Input } from 'igroot'
-const FormItem = Form.Item
+import { Row, Col, Input } from 'igroot'
 const formItemLayout = {
   labelCol: { span: 6 },
   wrapperCol: { span: 18 },
@@ -90,9 +89,10 @@ const formItemLayout = {
 class Search extends Component {
   render() {
     const { getFieldDecorator } = this.props.form
+    const { Item } = this.props
     return <Row>
       <Col span={6}>
-        <FormItem
+        <Item
 
           {...formItemLayout}
           label="厂商"
@@ -102,7 +102,7 @@ class Search extends Component {
               <Input />
             )
           }
-        </FormItem>
+        </Item>
       </Col>
       <Col span={18}>
         {this.props.renderButtons()}
@@ -223,3 +223,4 @@ export class List extends Component {
   }
 }
 ```
+

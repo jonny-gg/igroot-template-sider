@@ -1,6 +1,6 @@
-
 import React from 'react'
 import { Modal, Form, Spin, message } from 'igroot'
+const { Item } = Form
 function getDisplayName(WrappedComponent) {
   return WrappedComponent.displayName
     || WrappedComponent.name
@@ -15,6 +15,8 @@ function getDisplayName(WrappedComponent) {
  * 1.modalWillOpen 模态框开启时
  * 2.modalWillClose 模态框关闭时
  */
+export { Item }
+
 export default ({ formOptions, create, modalProps, update }) =>
   WrappedComponent => {
     class EditModal extends WrappedComponent {
