@@ -2,8 +2,8 @@ import React, { PureComponent } from 'react'
 import { Card } from 'igroot'
 import { Search } from './Search'
 import { List } from './List/'
-import TablePage from '@/components/TablePage/'
-import { querySupplierPage } from '@/apis/supplier/supplierPage'
+import TablePage from '@/components/HocTablePage'
+import { querySupplierPage } from '@/api/list'
 @TablePage({
   // 默认搜索参数 默认 {}
   defaultParams: {},
@@ -17,8 +17,9 @@ import { querySupplierPage } from '@/apis/supplier/supplierPage'
       if (res) {
         cb(
           {
-            dataSource: res.data.supplierPage.supplier_list,
-            total: res.data.supplierPage.pagination.total
+            // dataSource: res.data.supplierPage.supplier_list,
+            dataSource: res,
+            total: res.total || 10
           }
         )
       } else {
@@ -27,7 +28,7 @@ import { querySupplierPage } from '@/apis/supplier/supplierPage'
     })
   }
 })
-export class TablePage extends PureComponent {
+export class TableHocPage extends PureComponent {
   render() {
     return (
       <Card bodyStyle={{ padding: 10 }} >

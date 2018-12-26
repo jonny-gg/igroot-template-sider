@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { Input } from 'igroot'
-import HocModal, { Item } from '@/components/EditModal/'
-import { createSupplier } from '@/apis/supplier/createSupplier'
-import { updateSupplier } from '@/apis/supplier/updateSupplier'
+import HocModal, { Item } from '@/components/HocEditModal'
+import { createSupplier, updateSupplier } from '@/api/list'
 @HocModal({
   modalProps: {
     title: '厂商配置',

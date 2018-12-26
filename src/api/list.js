@@ -2,7 +2,7 @@
  * 获取列表
  * @param {入参} params
  */
-export const getItemList = (params = {}) => {
+export const querySupplierPage = (params = {}) => {
   console.log(params, '传入的参数')
   // mock 场景
   const data = [
@@ -49,7 +49,7 @@ export const getItemList = (params = {}) => {
  * 新增
  * @param {入参} params
  */
-export const addItem = (params = {}) => {
+export const createSupplier = (params = {}) => {
   // mock 场景
   return new Promise((resolve, reject) => {
     resolve(true)
@@ -66,7 +66,7 @@ export const addItem = (params = {}) => {
  * 删除
  * @param {入参} params 
  */
-export const deleteItem = (params = {}) => {
+export const deleteSupplier = (params = {}) => {
   // mock 场景
   return new Promise((resolve, reject) => {
     resolve(true)
@@ -83,7 +83,7 @@ export const deleteItem = (params = {}) => {
  * 更新
  * @param {入参} params
  */
-export const updateItem = (params = {}) => {
+export const updateSupplier = (params = {}) => {
   // mock 场景
   return new Promise((resolve, reject) => {
     resolve(true)

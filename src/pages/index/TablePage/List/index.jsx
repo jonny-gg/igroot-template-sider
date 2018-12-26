@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Row, Col, Table, Button, message, Popconfirm } from 'igroot'
-import { deleteSupplier } from '@/apis/supplier/deleteSupplier'
+import { deleteSupplier } from '@/api/list'
 import SupplierEditModal from './EditModal'
 export class List extends Component {
   state = {
