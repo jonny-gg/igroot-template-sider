@@ -8,7 +8,7 @@
   "link": false,
   "dependencies": {
     "history": "^4.7.2",
-    "igroot": "1.3.3",
+    "igroot": "^1.6.6",
     "igroot-fetch": "^1.5.6",
     "igroot-form-container": "^0.0.2",
     "igroot-frame-layout": "^0.2.0",
