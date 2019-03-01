@@ -1,15 +1,17 @@
 /**
  * 该模块主要用于路由配置
  */
+// 引入异步加载组件
+import asyncComponent from 'ac'
 
 // 引入要使用的布局组件
 import { BasicLayout } from '@/components/BasicLayout'
 
 // 引入渲染的页面模块
-import { Home } from './Home'
-import { TableHocPage } from './TablePage'
-import { NotFound } from './NotFound'
-import { VersionDetail } from './VersionDetail'
+const Home = asyncComponent(() => import('./Home'))
+const TableHocPage = asyncComponent(() => import('./TablePage'))
+const NotFound = asyncComponent(() => import('./NotFound'))
+const VersionDetail = asyncComponent(() => import('./VersionDetail'))
 
 /**
  * @path 路由
