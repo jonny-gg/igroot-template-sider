@@ -1,7 +1,7 @@
 {
-  "name": "demo-app",
+  "name": "app-name",
   "version": "0.0.1",
-  "description": "",
+  "description": "应用描述",
   "author": "",
   "license": "MIT",
   "private": true,

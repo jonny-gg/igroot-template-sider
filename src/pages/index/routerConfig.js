@@ -2,7 +2,7 @@
  * 该模块主要用于路由配置
  */
 // 引入异步加载组件
-import asyncComponent from 'ac'
+// import asyncComponent from 'ac'
 
 // 引入要使用的布局组件
 import { BasicLayout } from '@/components/BasicLayout'

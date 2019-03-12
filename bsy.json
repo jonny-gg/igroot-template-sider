@@ -4,7 +4,7 @@
   "builder": "igroot-builder",
   "options": {
     "homepage": "index",
-    "port": 6789,
+    "port": 9527,
     "theme": {},
     "esModule": [
       "sso-login",
