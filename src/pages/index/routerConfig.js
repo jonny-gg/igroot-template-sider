@@ -7,11 +7,16 @@ import asyncComponent from 'ac'
 // 引入要使用的布局组件
 import { BasicLayout } from '@/components/BasicLayout'
 
+import { Home } from './Home'
+import { TableHocPage } from './TablePage'
+import { NotFound } from './NotFound'
+import { VersionDetail } from './VersionDetail'
+
 // 引入渲染的页面模块
-const Home = asyncComponent(() => import('./Home'))
-const TableHocPage = asyncComponent(() => import('./TablePage'))
-const NotFound = asyncComponent(() => import('./NotFound'))
-const VersionDetail = asyncComponent(() => import('./VersionDetail'))
+// const Home = asyncComponent(() => import('./Home'))
+// const TableHocPage = asyncComponent(() => import('./TablePage'))
+// const NotFound = asyncComponent(() => import('./NotFound'))
+// const VersionDetail = asyncComponent(() => import('./VersionDetail'))
 
 /**
  * @path 路由
