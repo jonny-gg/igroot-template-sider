@@ -11,8 +11,7 @@ const domain = getDomain()
 // 路由配置
 import config from './routerConfig'
 
-// 接入登录的时候取消下面这一行的注释
-@hot(module)
+@hot(module) // 接入登录的时候取消下面这一行的注释
 // @withLogin(domain)
 class App extends Component {
   render() {
