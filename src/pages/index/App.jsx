@@ -15,7 +15,6 @@ import config from './routerConfig'
 // @withLogin(domain)
 class App extends Component {
   render() {
-    console.log('测试 git page 部署是否成功！')
     return <RouterConfig config={config} />
   }
 }
