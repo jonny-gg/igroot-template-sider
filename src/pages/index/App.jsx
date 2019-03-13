@@ -4,9 +4,11 @@
 import React, { Component } from 'react'
 import RouterConfig from 'igroot-router-config'
 
+import { hot } from '#'
+
 import { withLogin } from 'sso-login'
 import { getDomain } from '@/util/function'
-import { hot } from '#'
+
 // 路由配置
 import config from './routerConfig'
 
