@@ -16,8 +16,8 @@ function getDomain() {
     if (item.host.test(host)) domain = item.domain
   })
 
-  if (!domain)
-    throw new Error('Can not match the domain! Please check your domain config.')
+  // if (!domain)
+  //   throw new Error('Can not match the domain! Please check your domain config.')
   return domain
 }
 
